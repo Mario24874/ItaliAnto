@@ -1,0 +1,10 @@
+.env
+node_modules
+*.jpg
+*.png
+*.gif
+*.mp3
+*.mp4
+
+
+

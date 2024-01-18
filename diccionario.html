@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ItaliAntOnLine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="media\imagenes\Italianto_Oficial_SF.png">
+  </head>
+  <body>
+    <h1>Diccionario</h1>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            form label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid green;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form textarea:focus,
+        form select:focus {
+            outline: none;
+            border-bottom: 2px solid red;
+        }
+
+        form input[type="submit"] {
+            width: auto;
+            padding: 12px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: red;
+        }
+
+        #translation {
+            padding:12px; 
+            background-color:white; 
+            border-radius:5px; 
+            border-bottom:2px solid green; 
+        }
+      </style>
+    </head>
+    <body>
+        <form id="dictionary-form">
+            <label for="word">Palabra en español:</label><br>
+            <input type="text" id="word" name="word"><br><br>
+            <input type="submit" value="Buscar traducción">
+        </form>
+          
+          <p>Traducción al italiano:</p>
+          <p id="translation"></p>
+          
+        <script>
+            var dictionary = {
+              "hola": "ciao",
+              "adiós": "addio",
+              "gracias": "grazie",
+              "por favor": "per favore"
+            };
+          
+            document.getElementById("dictionary-form").addEventListener("submit", function(event) {
+              event.preventDefault();
+              var word = document.getElementById("word").value.toLowerCase();
+              var translation = dictionary[word];
+              if (translation) {
+                document.getElementById("translation").textContent = translation;
+              } else {
+                document.getElementById("translation").textContent = "No se encontró la traducción";
+              }
+            });
+        </script>
+  </body>
+</html>
